@@ -1,4 +1,6 @@
-%% Partie 1
+% This file contains the algorithms that we tested in order to complete endothelial cells detection based on an image
+%% Algorithm 1
+% We compute the gradient of the red component of the image.
 
 clear all
 clc
@@ -10,21 +12,20 @@ img(:,:,3) = tmp(:,:,3);
 
 I = imcrop(img,[357 1267 430 350]);
 % I = im2double(imcrop(img,[357 1267 90 90]));
-% blue = imcomplement(I(:,:,3));
 
 figure; imshow(I), title('Original image')
 figure; imshowpair(imcomplement(I(:,:,1)), imcomplement(I(:,:,3)), 'montage')
 title('Complement of the red component of the RGB image - Complement of the blue  component of the RGB image')    
 
-
 [Gx, Gy] = imgradientxy(I(:,:,1));
 [Gmag_R, Gdir] = imgradient(Gx, Gy);
 
-% figure; imshow(I), title('img r')
+
 figure; imshow(Gmag_R, []), title('Gradient magnitude of the red component')
 
 
 %% Partie 1.5
+% We compute the gradient of all three components of the image.
 
 clear all
 clc
@@ -63,7 +64,10 @@ figure; imshow(b), title('igms')
 figure; imshow(Gmag_B, []), title('magnitude')
 % 
 
+
+
 %% Partie 2
+% Image sharpening using Laplacian Filter
 
 clc;
 clear all;
@@ -105,6 +109,8 @@ imshowpair(croped, test, 'montage'); title('Orginal image                    - S
 
 %%
 %% Partie 3
+% Detect Cell Using Edge Detection and Morphology, Matlab documentation
+
 % clc;
 % close all;
 
@@ -164,6 +170,8 @@ title('Outlined Original Image')
 
 
 %% Partie 4
+% Flood fill algorithm
+
 clear all
 clc
 
@@ -225,7 +233,9 @@ result(:,:,3) = Binary_blue;
 
 figure; imshowpair(result, I, 'montage'); title('value red >= 0.35')
 
+
 %% Partie 5
+% Nuclei surrounding - Coloration of pixels surrounding defined spots
 clear all
 clc
 
