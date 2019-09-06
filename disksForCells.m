@@ -1,5 +1,5 @@
 function [outputImg] = disksForCells(img, i, j, out)
-
+% This function modifies value of neigbors pixels under certains conditions
 
 outputImg = out;
 
