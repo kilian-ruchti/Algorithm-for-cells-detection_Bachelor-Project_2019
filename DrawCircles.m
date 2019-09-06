@@ -1,5 +1,8 @@
 function [outputImage] = DrawCircles(temp, layers)
 
+% This function detects the neigbors' pixels surrounding the already colored ones. 
+% This creates a circle around dots that represents the nuclei of cells.
+
 [m,n,~] = size(temp);
 outputImage = temp;
 
