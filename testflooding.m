@@ -1,4 +1,5 @@
 function [tmp] = testflooding(tmp, I, i, j, Binary_blue, val)
+% This function implements the flood fill algorithm
 
 [m,n,~] = size(I);
 
